@@ -1,13 +1,14 @@
 #include <iostream>;
 
 int positions[3][3];
-char player1Name[32];
-char player2Name[32];
+char player1Name[16];
+char player2Name[16];
 bool player1Victory = false;
 bool player2Victory = false;
 
 void setName(int index)
 {
+	// Loop until valid input is given
 	while (true)
 	{
 		if (index == 1)
@@ -66,6 +67,8 @@ void drawGrid()
 		}
 		arr[1] = '|';
 		arr[3] = '|';
+		// Zero terminate the char array
+		arr[5] = 0;
 		std::cout << arr << std::endl;
 	}
 }
@@ -81,7 +84,7 @@ void setGrid(int index)
 {
 	if (index == 1)
 	{
-		std::cout << player1Name << "! It's your turn!\n";
+		std::cout << player1Name << "! It's your turn! [X]\n";
 		int x = 0;
 		int y = 0;
 		while (true)
@@ -119,7 +122,7 @@ void setGrid(int index)
 	}
 	else if (index == 2)
 	{
-		std::cout << player2Name << "! It's your turn!\n";
+		std::cout << player2Name << "! It's your turn! [O]\n";
 		int x = 0;
 		int y = 0;
 		while (true)
@@ -157,6 +160,63 @@ void setGrid(int index)
 	}
 }
 
+bool checkWin()
+{
+	for (int i = 0; i < 3; i++)
+	{
+		// Player 1
+		// Columns
+		if (positions[0][i] == 1 &&
+			positions[1][i] == 1 &&
+			positions[2][i] == 1)
+			return player1Victory = true;
+
+		// Rows
+		if (positions[i][0] == 1 &&
+			positions[i][1] == 1 &&
+			positions[i][2] == 1)
+			return player1Victory = true;
+
+		// Player 2
+		// Columns
+		if (positions[0][i] == 2 &&
+			positions[1][i] == 2 &&
+			positions[2][i] == 2)
+			return player2Victory = true;
+
+		// Rows
+		if (positions[i][0] == 2 &&
+			positions[i][1] == 2 &&
+			positions[i][2] == 2)
+			return player2Victory = true;
+	}
+	// Player 1
+	// Diag 1
+	if (positions[0][0] == 1 &&
+		positions[1][1] == 1 &&
+		positions[2][2] == 1)
+		return player1Victory = true;
+	// Diag 2
+	else if (positions[2][0] == 1 &&
+		positions[1][1] == 1 &&
+		positions[0][2] == 1)
+		return player1Victory = true;
+
+	// Player 2
+	// Diag 1
+	if (positions[0][0] == 2 &&
+		positions[1][1] == 2 &&
+		positions[2][2] == 2)
+		return player2Victory = true;
+	// Diag 2
+	else if (positions[2][0] == 2 &&
+		positions[1][1] == 2 &&
+		positions[0][2] == 2)
+		return player2Victory = true;
+
+	return false;
+}
+
 int main()
 {
 	// Get names
@@ -185,9 +245,25 @@ int main()
 		system("cls");
 		drawGrid();
 		std::cout << std::endl;
+		if (checkWin())
+			break;
 		setGrid(2);
+		checkWin();
 	}
 
+	system("cls");
+	drawGrid();
+
+	if (player1Victory)
+	{
+		std::cout << std::endl;
+		std::cout << player1Name << " wins!\n\n";
+	}
+	else if (player2Victory)
+	{
+		std::cout << std::endl;
+		std::cout << player2Name << " wins!\n\n";
+	}
 	system("pause");
 	return 0;
 }
