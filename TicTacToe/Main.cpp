@@ -1,8 +1,8 @@
 #include <iostream>;
 
 int positions[3][3];
-char player1Name[16];
-char player2Name[16];
+char player1Name[64];
+char player2Name[64];
 bool player1Victory = false;
 bool player2Victory = false;
 
@@ -58,6 +58,8 @@ void drawGrid()
 		}
 	}
 
+	std::cout << std::endl;
+
 	for (int i = 0; i < 3; i++)
 	{
 		char arr[6];
@@ -69,7 +71,8 @@ void drawGrid()
 		arr[3] = '|';
 		// Zero terminate the char array
 		arr[5] = 0;
-		std::cout << arr << std::endl;
+		
+		std::cout << "  " << arr << std::endl;
 	}
 }
 
@@ -172,7 +175,7 @@ bool checkWin()
 			return player1Victory = true;
 
 		// Rows
-		if (positions[i][0] == 1 &&
+		else if (positions[i][0] == 1 &&
 			positions[i][1] == 1 &&
 			positions[i][2] == 1)
 			return player1Victory = true;
@@ -185,7 +188,7 @@ bool checkWin()
 			return player2Victory = true;
 
 		// Rows
-		if (positions[i][0] == 2 &&
+		else if (positions[i][0] == 2 &&
 			positions[i][1] == 2 &&
 			positions[i][2] == 2)
 			return player2Victory = true;
