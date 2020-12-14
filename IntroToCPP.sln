@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IntroToCPP", "IntroToCPP.vc
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TicTacToe", "TicTacToe\TicTacToe.vcxproj", "{02A3B110-38AC-4AE7-91BA-4227502D11DD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pointers", "Pointers\Pointers.vcxproj", "{95415006-05FC-4F82-B9B5-FD68143E5C70}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{02A3B110-38AC-4AE7-91BA-4227502D11DD}.Release|x64.Build.0 = Release|x64
 		{02A3B110-38AC-4AE7-91BA-4227502D11DD}.Release|x86.ActiveCfg = Release|Win32
 		{02A3B110-38AC-4AE7-91BA-4227502D11DD}.Release|x86.Build.0 = Release|Win32
+		{95415006-05FC-4F82-B9B5-FD68143E5C70}.Debug|x64.ActiveCfg = Debug|x64
+		{95415006-05FC-4F82-B9B5-FD68143E5C70}.Debug|x64.Build.0 = Debug|x64
+		{95415006-05FC-4F82-B9B5-FD68143E5C70}.Debug|x86.ActiveCfg = Debug|Win32
+		{95415006-05FC-4F82-B9B5-FD68143E5C70}.Debug|x86.Build.0 = Debug|Win32
+		{95415006-05FC-4F82-B9B5-FD68143E5C70}.Release|x64.ActiveCfg = Release|x64
+		{95415006-05FC-4F82-B9B5-FD68143E5C70}.Release|x64.Build.0 = Release|x64
+		{95415006-05FC-4F82-B9B5-FD68143E5C70}.Release|x86.ActiveCfg = Release|Win32
+		{95415006-05FC-4F82-B9B5-FD68143E5C70}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
