@@ -10,6 +10,8 @@ public:
 	void setGameOver(bool value) { m_gameOver = value; }
 
 private:
+	int getIntInput(int numInputs);
+	void doBattle(Character* player1, Character* player2);
 	void start();
 	void update();
 	void draw();
@@ -17,6 +19,6 @@ private:
 
 private:
 	bool m_gameOver;
-	Character m_player1;
-	Character m_player2;
+	Character* m_player1;
+	Character* m_player2;
 };
